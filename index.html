@@ -1,59 +1,77 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yossarian Modpacks</title><style>
-:root{--bg:#f7f7f5;--fg:#1d1d1b;--muted:#5f5f5a;--card:#fff;--line:#deded8;--accent:#2f6f4f}
-@media (prefers-color-scheme: dark){:root{--bg:#1a1b1a;--fg:#ececea;--muted:#a3a39d;--card:#232523;--line:#363834;--accent:#7cc39b}}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,sans-serif}main{max-width:760px;margin:0 auto;padding:32px 16px}
-h1{margin:0 0 4px;font-size:1.6em}ol,ul{padding-left:20px}ul.tiers{list-style:none;padding:0}ul.tiers>li{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:12px 0}
-h2{font-size:1.1em;margin:24px 0 8px}h3{font-size:1.05em;margin:0}ul.tiers ul{margin:6px 0 0}ul.tiers ul li{margin:4px 0}li p{margin:4px 0}.url{font-family:ui-monospace,monospace;font-size:.9em;overflow-wrap:anywhere}a{color:var(--accent)}.muted,li span{color:var(--muted)}
-.tag{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;background:var(--accent);color:var(--bg);font-size:.75em;font-weight:600;vertical-align:2px}
+:root{--bg:#f7f7f5;--fg:#1d1d1b;--muted:#5f5f5a;--card:#fff;--line:#deded8;--accent:#2f6f4f;--rec-bg:#f4e4b8;--rec-fg:#634300}
+@media (prefers-color-scheme: dark){:root{--bg:#1a1b1a;--fg:#ececea;--muted:#a3a39d;--card:#232523;--line:#363834;--accent:#7cc39b;--rec-bg:#4b3c17;--rec-fg:#f2d48a}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,sans-serif}main{max-width:760px;margin:0 auto;padding:32px 16px 48px}
+a{color:var(--accent)}a.plain{color:inherit;text-decoration:none}a.plain:hover{text-decoration:underline}p{margin:0}h1{margin:0;font-size:1.75em;line-height:1.25}h2{font-size:1.3em;margin:40px 0 12px}h4{margin:0;font-size:1.1em}
+.muted{color:var(--muted)}.small{font-size:.875em}.lede{margin-top:8px}.note{margin-top:12px}
+.eyebrow{margin:28px 0 8px;font-size:.78em;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tag{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:999px;font-size:.72rem;font-weight:700;line-height:1.6;vertical-align:.15em;white-space:nowrap}.rec{background:var(--rec-bg);color:var(--rec-fg)}.who{background:var(--accent);color:var(--bg)}
+.copy{flex:none;display:inline-block;padding:3px 12px;border:1px solid var(--accent);border-radius:6px;color:var(--accent);font-size:.85em;font-weight:600;text-decoration:none;white-space:nowrap}.copy:hover,.copy.primary{background:var(--accent);color:var(--bg)}
+.url{font-family:ui-monospace,monospace;font-size:.78em;color:var(--muted);overflow-wrap:anywhere}
+.picks{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.pick{display:flex;flex-direction:column;gap:4px;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:8px;padding:14px 16px}
+.pick .name{font-size:1.4em;font-weight:700;line-height:1.2;margin-bottom:4px}.pick .level-name{font-weight:700;color:var(--accent)}
+.pick .actions{display:flex;align-items:center;gap:14px;margin-top:auto;padding-top:14px}.pick .copy{padding:6px 14px;font-size:.95em}
+.opts a.plain,.level h4 a.plain{font-weight:500}
+.level{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 16px;margin:0 0 10px}.desc{margin-top:2px;font-size:.9em;color:var(--muted)}
+.row,.opts li{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.opts{list-style:none;margin:10px 0 0;padding:0}.opts li{padding:8px 0;border-top:1px solid var(--line)}.opts li:last-child{padding-bottom:0}
+.importbox{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 16px}.importbox .url{font-size:.85em;color:var(--fg)}
+ol.steps{margin:0;padding-left:22px}ol.steps li{margin:4px 0}
+details{margin-top:40px}summary{cursor:pointer;font-size:1.3em;font-weight:700}ul.mods{margin:10px 0 0;padding-left:20px}@media (min-width:600px){ul.mods{columns:2;column-gap:32px}}
 table{border-collapse:collapse;width:100%;background:var(--card);border:1px solid var(--line);border-radius:8px}th,td{text-align:left;padding:8px 12px;border-top:1px solid var(--line)}tr:first-child th,tr:first-child td{border-top:0}th{font-weight:600;width:40%}
 </style></head><body><main>
 <h1>Yossarian Modpacks</h1>
-<p class="muted">Minecraft 26.3, Fabric 0.19.5.</p>
-<h2>Install</h2><ol>
+<p class="lede muted">Minecraft 26.3 &middot; Fabric 0.19.5</p>
+<h2>Start here</h2>
+<div class="picks"><div class="pick"><p class="name">Morgan</p><p class="level-name">High</p><p>Bigger Overhaul</p><p class="muted small">Windows</p><div class="actions"><a class="copy primary" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Unbound.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Unbound.zip">Copy import link</a><a class="small" href="high-unbound/">Details</a></div></div><div class="pick"><p class="name">Megan</p><p class="level-name">High</p><p>Bigger Overhaul, Clear Water</p><p class="muted small">Windows</p><div class="actions"><a class="copy primary" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Unbound-Megan.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Unbound-Megan.zip">Copy import link</a><a class="small" href="high-unbound-megan/">Details</a></div></div><div class="pick"><p class="name">Luis</p><p class="level-name">Very High</p><p>Bigger Overhaul</p><p class="muted small">Windows</p><div class="actions"><a class="copy primary" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Very-High-Unbound.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Very-High-Unbound.zip">Copy import link</a><a class="small" href="very-high-unbound/">Details</a></div></div></div>
+<h2>Install</h2><ol class="steps">
 <li>Install <a href="https://prismlauncher.org/">Prism Launcher</a> on the computer you play on, and sign in with your Microsoft account.</li>
-<li>In Prism choose <b>Add Instance</b>, then <b>Import</b>, and paste the link for your tier below.</li>
-<li><b>The first time: launch it, quit, then launch it again.</b> The first launch downloads the mods; the second is the one where everything is in place.</li>
-<li>After that, just play. It updates itself each time you launch.</li>
-</ol><p>Press k to toggle shaders on/off.</p>
-<p>You can import more than one tier. Each becomes its own instance in Prism, so you can switch between them, for example to compare Ultra with Live. Each instance keeps its own settings and maps.</p>
-<p class="muted">Import links only work while Tailscale is connected, the same as for joining the server. Reading this on a phone? Open it on your computer to install, since Prism runs there. Your own settings are never overwritten.</p>
-<h2>macOS tiers</h2><ul class="tiers">
-<li><h3><a href="mac-basic/">Basic</a></h3><p>No shaders, Vulkan renderer. The smoothest option on a Mac.</p><ul><li><a class="url" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-macOS-Basic.zip">http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-macOS-Basic.zip</a></li></ul></li>
-<li><h3>Shaders <span class="tag">Megan Start Here</span></h3><p>Complementary shaders on Medium. Uses OpenGL, because shaders can&#39;t run on Vulkan.</p><ul><li><a href="mac-shaders/">Standard Water</a>: <a class="url" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-macOS-Shaders.zip">http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-macOS-Shaders.zip</a></li><li><a href="mac-shaders-megan/">Clear Water</a> <span class="tag">Megan</span>: <a class="url" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-macOS-Shaders-Megan.zip">http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-macOS-Shaders-Megan.zip</a></li></ul></li>
-</ul>
-<h2>Windows tiers</h2><ul class="tiers">
-<li><h3><a href="basic/">Basic</a></h3><p>No shaders. The fallback for weaker PCs, or if shaders won&#39;t run.</p><ul><li><a class="url" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Basic.zip">http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Basic.zip</a></li></ul></li>
-<li><h3>High <span class="tag">Morgan Start Here</span> <span class="tag">Megan Start Here</span></h3><p>Complementary High, 16-chunk view. For lighter gaming PCs (RX 7600 XT class).</p><ul><li><a href="high/">More Traditional Look</a>: <a class="url" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High.zip">http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High.zip</a></li><li><a href="high-megan/">More Traditional Look, Clear Water</a> <span class="tag">Megan</span>: <a class="url" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Megan.zip">http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Megan.zip</a></li><li><a href="high-unbound/">Bigger Overhaul</a> <span class="tag">Jeff&#39;s Recommendation</span>: <a class="url" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Unbound.zip">http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Unbound.zip</a></li><li><a href="high-unbound-megan/">Bigger Overhaul, Clear Water</a> <span class="tag">Jeff&#39;s Recommendation</span> <span class="tag">Megan</span>: <a class="url" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Unbound-Megan.zip">http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Unbound-Megan.zip</a></li></ul></li>
-<li><h3>Very High <span class="tag">Luis Start Here</span></h3><p>Complementary Very High, which adds colored light from torches and lava, with a 16-chunk view (RX 6800 XT class).</p><ul><li><a href="very-high/">More Traditional Look</a>: <a class="url" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Very-High.zip">http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Very-High.zip</a></li><li><a href="very-high-unbound/">Bigger Overhaul</a> <span class="tag">Jeff&#39;s Recommendation</span>: <a class="url" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Very-High-Unbound.zip">http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Very-High-Unbound.zip</a></li></ul></li>
-<li><h3>Ultra</h3><p>Complementary Ultra, which adds reflections of off-screen terrain in water and glass, with a 20-chunk view (RTX 4070 Ti Super class).</p><ul><li><a href="ultra/">More Traditional Look</a>: <a class="url" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Ultra.zip">http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Ultra.zip</a></li><li><a href="ultra-unbound/">Bigger Overhaul</a>: <a class="url" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Ultra-Unbound.zip">http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Ultra-Unbound.zip</a></li></ul></li>
-<li><h3>Fuck It, We&#39;ll do it Live</h3><p>Everything turned up: Complementary&#39;s top profile, 20-chunk view, Distant Horizons out to 196 chunks at Extreme detail. For an RTX 4070 Ti Super.</p><ul><li><a href="live-reimagined/">More Traditional Look</a>: <a class="url" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Fuck-It-Well-do-it-Live-Reimagined.zip">http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Fuck-It-Well-do-it-Live-Reimagined.zip</a></li><li><a href="live-unbound/">Bigger Overhaul</a>: <a class="url" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Fuck-It-Well-do-it-Live-Unbound.zip">http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Fuck-It-Well-do-it-Live-Unbound.zip</a></li></ul></li>
-</ul>
-<h2>Mods</h2><ul>
-<li>Fabric API 0.164.0+26.3 <span>(all tiers)</span></li>
-<li>Fabric Language Kotlin 1.14.2+kotlin.2.4.21 <span>(all tiers)</span></li>
-<li>Mod Menu 21.0.0 <span>(all tiers)</span></li>
-<li>Sodium mc26.3-0.9.2-fabric <span>(all tiers)</span></li>
-<li>Enchanted&#39;s Sodium Options 1.3.2+0.9.2-mc26.3-fabric <span>(all tiers)</span></li>
-<li>ImmediatelyFast 1.17.1+26.3-fabric <span>(all tiers)</span></li>
-<li>Entity Culling 1.11.3 <span>(all tiers)</span></li>
-<li>FerriteCore 9.0.0-fabric <span>(all tiers)</span></li>
-<li>Distant Horizons 3.3.4-26.3 <span>(all tiers)</span></li>
-<li>Continuity 3.0.1+26.3 <span>(all tiers)</span></li>
-<li>AppleSkin 3.0.10+mc26.3 <span>(all tiers)</span></li>
-<li>Accurate Block Placement Reborn 1.4.8 <span>(all tiers)</span></li>
-<li>Inventory Profiles Next fabric-26.3-2.3.8 <span>(all tiers)</span></li>
-<li>libIPN fabric-26.3-6.9.0 <span>(all tiers)</span></li>
-<li>Just Enough Items (JEI) 31.16.0.87 <span>(all tiers)</span></li>
-<li>Mouse Tweaks 26.3-2.31-fabric <span>(all tiers)</span></li>
-<li>Shulker Box Tooltip 5.4.2+26.3-fabric <span>(all tiers)</span></li>
-<li>Controlling 26.3.4 <span>(all tiers)</span></li>
-<li>Searchables 1.0.3 <span>(all tiers)</span></li>
-<li>Chat Heads 1.3.2 <span>(all tiers)</span></li>
-<li>Xaero&#39;s Minimap fabric-26.3-26.6.1 <span>(all tiers)</span></li>
-<li>Xaero&#39;s World Map fabric-26.3-1.47.1 <span>(all tiers)</span></li>
-<li>Iris Shaders 1.11.7+26.3-fabric <span>(shader tiers)</span></li>
-<li>Complementary Shaders - Reimagined r5.9.3 <span>(shader tiers)</span></li>
-<li>Complementary Shaders - Unbound r5.9.3 <span>(shader tiers)</span></li>
-</ul>
-</main></body></html>
+<li>In Prism choose <b>Add Instance</b> &rarr; <b>Import</b>, and paste your link.</li>
+<li>Launch it. The first launch downloads everything; after that it updates itself each time.</li>
+</ol>
+<p class="note muted small">Press K in game to turn shaders on or off. Import links only work while Tailscale is connected. Your own settings are never overwritten.</p>
+<h2>All tiers</h2>
+<p class="muted small">Lightest to heaviest. You can import more than one: each becomes its own Prism instance with its own settings and maps.</p>
+<p class="eyebrow">Windows</p>
+<section class="level"><div class="row"><h4><a class="plain" href="basic/">Basic</a></h4><a class="copy" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Basic.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Basic.zip">Copy link</a></div><p class="desc">No shaders. The fallback for weaker PCs, or if shaders won&#39;t run.</p></section>
+<section class="level"><h4>High</h4><p class="desc">Complementary High, 16-chunk view. For lighter gaming PCs (RX 7600 XT class).</p><ul class="opts"><li><span><a class="plain" href="high/">More Traditional Look</a></span><a class="copy" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High.zip">Copy link</a></li><li><span><a class="plain" href="high-megan/">More Traditional Look, Clear Water</a></span><a class="copy" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Megan.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Megan.zip">Copy link</a></li><li><span><a class="plain" href="high-unbound/">Bigger Overhaul</a> <span class="tag rec">Jeff&#39;s Recommendation</span> <span class="tag who">For Morgan</span></span><a class="copy" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Unbound.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Unbound.zip">Copy link</a></li><li><span><a class="plain" href="high-unbound-megan/">Bigger Overhaul, Clear Water</a> <span class="tag rec">Jeff&#39;s Recommendation</span> <span class="tag who">For Megan</span></span><a class="copy" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Unbound-Megan.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-High-Unbound-Megan.zip">Copy link</a></li></ul></section>
+<section class="level"><h4>Very High</h4><p class="desc">Complementary Very High, which adds colored light from torches and lava, with a 16-chunk view (RX 6800 XT class).</p><ul class="opts"><li><span><a class="plain" href="very-high/">More Traditional Look</a></span><a class="copy" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Very-High.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Very-High.zip">Copy link</a></li><li><span><a class="plain" href="very-high-unbound/">Bigger Overhaul</a> <span class="tag rec">Jeff&#39;s Recommendation</span> <span class="tag who">For Luis</span></span><a class="copy" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Very-High-Unbound.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Very-High-Unbound.zip">Copy link</a></li></ul></section>
+<section class="level"><h4>Ultra</h4><p class="desc">Complementary Ultra, which adds reflections of off-screen terrain in water and glass, with a 20-chunk view (RTX 4070 Ti Super class).</p><ul class="opts"><li><span><a class="plain" href="ultra/">More Traditional Look</a></span><a class="copy" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Ultra.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Ultra.zip">Copy link</a></li><li><span><a class="plain" href="ultra-unbound/">Bigger Overhaul</a></span><a class="copy" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Ultra-Unbound.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Ultra-Unbound.zip">Copy link</a></li></ul></section>
+<section class="level"><h4>Fuck It, We&#39;ll do it Live</h4><p class="desc">Everything turned up: Complementary&#39;s top profile, 20-chunk view, Distant Horizons out to 196 chunks at Extreme detail. For an RTX 4070 Ti Super.</p><ul class="opts"><li><span><a class="plain" href="live-reimagined/">More Traditional Look</a></span><a class="copy" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Fuck-It-Well-do-it-Live-Reimagined.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Fuck-It-Well-do-it-Live-Reimagined.zip">Copy link</a></li><li><span><a class="plain" href="live-unbound/">Bigger Overhaul</a></span><a class="copy" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Fuck-It-Well-do-it-Live-Unbound.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-Windows-Fuck-It-Well-do-it-Live-Unbound.zip">Copy link</a></li></ul></section>
+<p class="eyebrow">macOS</p>
+<section class="level"><div class="row"><h4><a class="plain" href="mac-basic/">Basic</a></h4><a class="copy" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-macOS-Basic.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-macOS-Basic.zip">Copy link</a></div><p class="desc">No shaders, Vulkan renderer. The smoothest option on a Mac.</p></section>
+<section class="level"><h4>Shaders</h4><p class="desc">Complementary shaders on Medium. Uses OpenGL, because shaders can&#39;t run on Vulkan.</p><ul class="opts"><li><span><a class="plain" href="mac-shaders/">Standard Water</a></span><a class="copy" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-macOS-Shaders.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-macOS-Shaders.zip">Copy link</a></li><li><span><a class="plain" href="mac-shaders-megan/">Clear Water</a></span><a class="copy" href="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-macOS-Shaders-Megan.zip" data-copy="http://yossarian.tail40a095.ts.net:8101/instances/Yossarian-macOS-Shaders-Megan.zip">Copy link</a></li></ul></section>
+<details><summary>Mods (25)</summary><ul class="mods">
+<li>Fabric API 0.164.0+26.3 <span class="muted">(all tiers)</span></li>
+<li>Fabric Language Kotlin 1.14.2+kotlin.2.4.21 <span class="muted">(all tiers)</span></li>
+<li>Mod Menu 21.0.0 <span class="muted">(all tiers)</span></li>
+<li>Sodium mc26.3-0.9.2-fabric <span class="muted">(all tiers)</span></li>
+<li>Enchanted&#39;s Sodium Options 1.3.2+0.9.2-mc26.3-fabric <span class="muted">(all tiers)</span></li>
+<li>ImmediatelyFast 1.17.1+26.3-fabric <span class="muted">(all tiers)</span></li>
+<li>Entity Culling 1.11.3 <span class="muted">(all tiers)</span></li>
+<li>FerriteCore 9.0.0-fabric <span class="muted">(all tiers)</span></li>
+<li>Distant Horizons 3.3.4-26.3 <span class="muted">(all tiers)</span></li>
+<li>Continuity 3.0.1+26.3 <span class="muted">(all tiers)</span></li>
+<li>AppleSkin 3.0.10+mc26.3 <span class="muted">(all tiers)</span></li>
+<li>Accurate Block Placement Reborn 1.4.8 <span class="muted">(all tiers)</span></li>
+<li>Inventory Profiles Next fabric-26.3-2.3.8 <span class="muted">(all tiers)</span></li>
+<li>libIPN fabric-26.3-6.9.0 <span class="muted">(all tiers)</span></li>
+<li>Just Enough Items (JEI) 31.16.0.87 <span class="muted">(all tiers)</span></li>
+<li>Mouse Tweaks 26.3-2.31-fabric <span class="muted">(all tiers)</span></li>
+<li>Shulker Box Tooltip 5.4.2+26.3-fabric <span class="muted">(all tiers)</span></li>
+<li>Controlling 26.3.4 <span class="muted">(all tiers)</span></li>
+<li>Searchables 1.0.3 <span class="muted">(all tiers)</span></li>
+<li>Chat Heads 1.3.2 <span class="muted">(all tiers)</span></li>
+<li>Xaero&#39;s Minimap fabric-26.3-26.6.1 <span class="muted">(all tiers)</span></li>
+<li>Xaero&#39;s World Map fabric-26.3-1.47.1 <span class="muted">(all tiers)</span></li>
+<li>Iris Shaders 1.11.7+26.3-fabric <span class="muted">(shader tiers)</span></li>
+<li>Complementary Shaders - Reimagined r5.9.3 <span class="muted">(shader tiers)</span></li>
+<li>Complementary Shaders - Unbound r5.9.3 <span class="muted">(shader tiers)</span></li>
+</ul></details>
+</main><script>
+document.addEventListener("click",function(e){var a=e.target.closest("a[data-copy]");if(!a)return;e.preventDefault();var u=a.getAttribute("data-copy"),t=a.getAttribute("data-text")||a.textContent;a.setAttribute("data-text",t);
+var done=function(){a.textContent="Copied";setTimeout(function(){a.textContent=t},1500)};if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(u).then(done);return}
+var x=document.createElement("textarea");x.value=u;document.body.appendChild(x);x.select();document.execCommand("copy");x.remove();done()});
+</script></body></html>
